@@ -1,0 +1,13 @@
+import hashlib
+
+def sha1_hash(message):
+    # Create a SHA-1 hash object
+    sha1 = hashlib.sha1()
+    # Update the hash object with the bytes of the message
+    sha1.update(message.encode())
+    # Get the hexadecimal representation of the hash
+    return sha1.hexdigest()
+
+# Example usage
+message = "Hello, World!"
+print("SHA-1 Hash:", sha1_hash(message))
