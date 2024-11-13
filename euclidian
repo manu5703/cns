@@ -1,0 +1,30 @@
+def gcd(a, b):
+    if a == 0:
+        return b
+    return gcd(b % a, a)
+
+# Driver code
+a, b = 10, 15
+print(f"GCD({a}, {b}) = {gcd(a, b)}")
+
+a, b = 35, 10
+print(f"GCD({a}, {b}) = {gcd(a, b)}")
+
+a, b = 31, 2
+print(f"GCD({a}, {b}) = {gcd(a, b)}")
+
+# Advanced Euclidean Algorithm
+
+def gcd_extended(a, b):
+    if a == 0:
+        return b, 0, 1
+    gcd, x1, y1 = gcd_extended(b % a, a)
+    x = y1 - (b // a) * x1
+    y = x1
+    return gcd, x, y
+
+# Driver Program
+a = 35
+b = 15
+gcd, x, y = gcd_extended(a, b)
+print(f"gcd({a}, {b}) = {gcd}, x = {x}, y = {y}")
